@@ -1,0 +1,352 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deteksi Bakteri Ispa</title>
+  <link rel="shortcut icon" href="/static/POLIJE TRANSPARAN.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.1.1/flowbite.min.css" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    h1 {
+      font-family: 'Lexend Deca', sans-serif;
+      font-weight: 700;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    video {
+      width: 100%;
+      height: 800px;
+      object-fit: cover;
+    }
+
+    .active-btn {
+      background-color: white;
+      color: #898989 !important;
+      font-weight: 600;
+      border-start-start-radius: 0.375rem;
+      border-start-end-radius: 0.375rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    .loadingScreen {
+      position: absolute;
+      z-index: 5;
+      width: 100%;
+      height: 100vh;
+      background-color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1em;
+      transition: 2s ease;
+      cursor: progress;
+    }
+
+    .wrapper:hover {
+      transform: scale(1.2);
+    }
+
+    .text {
+      color: white;
+      font-weight: 800;
+    }
+
+    .dot {
+      background: white;
+      height: 0.65em;
+      width: 0.65em;
+      border-radius: 50%;
+      animation: move 0.6s ease infinite;
+    }
+
+    @keyframes move {
+      0% {
+        transform: translateX(50%);
+      }
+
+      50% {
+        transform: translateX(-50%);
+      }
+
+      100% {
+        transform: translateX(50%);
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-white">
+  <div class="loadingScreen">
+    <div class="wrapper">
+      <div class="dot"></div>
+      <span class="text">Loading</span>
+    </div>
+  </div>
+
+  <nav class="bg-white border-gray-200 pb-10">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4">
+      <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse"><span
+          class="self-center text-2xl text-gray-400 font-semibold whitespace-nowrap">RespiraScanAI</span></a>
+      <button data-collapse-toggle="navbar-default" type="button"
+        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+        aria-controls="navbar-default" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M1 1h15M1 7h15M1 13h15" />
+        </svg>
+      </button>
+      <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+        <ul
+          class="font-regular flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white">
+          <li>
+            <a href="#"
+              class="block py-2 px-3 text-gray-400 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#7fccf1] md:p-0">Obyek</a>
+          </li>
+          <li>
+            <a href="#"
+              class="block py-2 px-3 text-gray-400 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#7fccf1] md:p-0">Metode</a>
+          </li>
+          <li>
+            <a href="#"
+              class="block py-2 px-3 text-gray-400 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#7fccf1] md:p-0">Arsitektur</a>
+          </li>
+          <li>
+            <a href="#"
+              class="block py-2 px-3 text-gray-400 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#7fccf1] md:p-0">Kreator</a>
+          </li>
+          <li>
+            <a href="/mulai"
+              class="block py-2 px-3 text-gray-400 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#7fccf1] md:p-0">Mulai</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="max-w-screen-xl mx-auto">
+    <!-- Video Section -->
+    <div class="relative overflow-hidden">
+      <!-- Video 1 -->
+      <video id="video1" class="video hidden" autoplay loop muted playsinline>
+        <source src="static/video1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <!-- Video 2 -->
+      <video id="video2" class="video hidden" autoplay loop muted playsinline>
+        <source src="static/video2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <!-- Video 3 -->
+      <video id="video3" class="video hidden" autoplay loop muted playsinline>
+        <source src="static/video3.mp4" type="video/mp4">
+
+        Your browser does not support the video tag.
+      </video>
+
+      <!-- Video 4 -->
+      <video id="video4" class="video hidden" autoplay loop muted playsinline>
+        <source src="static/video4.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <!-- Video 5 -->
+      <video id="video5" class="video hidden" autoplay loop muted playsinline>
+        <source src="static/video5.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <!-- Teks 1 -->
+      <div id="text1" class="absolute inset-0 flex flex-col justify-center items-left text-white pl-16">
+        <h1 class="text-4xl font-semibold">Bakteri Infeksi <br>Saluran Pernafasan <br>Akut (ISPA)</h1>
+        <p class="mt-4">
+          Mengklasifikasikan beberapa bakteri <br>penyebab Infeksi Saluran Pernafasan Akut <br>(ISPA) dengan akurasi
+          tinggi.
+        </p>
+        <a href="/" class="font-bold underline mt-2">
+          Lihat Selengkapnya
+        </a>
+      </div>
+
+      <!-- Teks 2 -->
+      <div id="text2"
+        class="absolute inset-0 flex flex-col justify-center items-left text-white pl-16 hidden ml-48 mt-20">
+        <h1 class="text-4xl font-semibold">Convolutional <br>Neural Network <br>(CNN)</h1>
+        <p class="mt-3">
+          Convolutional Neural Network (CNN) digunakan <br>untuk analisis gambar dengan
+          memanfaatkan <br> lapisan konvolusi untuk mengekstrak fitur dari data visual.
+        </p>
+        <a href="/" class="font-bold underline mt-2">
+          Lihat Selengkapnya
+        </a>
+      </div>
+
+      <!-- Teks 3 -->
+      <div id="text3"
+        class="absolute inset-0 flex flex-col justify-center items-left text-white pl-16 hidden ml-[450px]">
+        <h1 class="text-3xl font-semibold">InceptionResNet-V2</h1>
+        <p class="mt-3">
+          InceptionResNetV2 desain Convolutional Neural <br>Network (CNN) yang menggabungkan residual connections <br>
+          dan
+          beragam filter untuk meningkatkan akurasi dan efisiensi.
+        </p>
+        <a href="/" class="font-bold underline mt-2">
+          Lihat Selengkapnya
+        </a>
+      </div>
+
+      <!-- Teks 4 -->
+      <div id="text4"
+        class="absolute inset-0 flex flex-col justify-center items-left text-white pl-16 hidden ml-[700px] mt-44">
+        <h1 class="text-3xl font-semibold">Kontributor </h1>
+        <p class="mt-3">
+          Beberapa orang yang memberikan kontribusi <br>atau sumbangsih secara langsung maupun <br>tidak langsung dalam
+          mencapai project ini
+        </p>
+        <a href="/" class="font-bold underline mt-2">
+          Lihat Selengkapnya
+        </a>
+      </div>
+
+      <!-- Teks 5 -->
+      <div id="text5"
+        class="absolute inset-0 flex flex-col justify-center items-left text-white pl-16 hidden ml-[960px] mt-56">
+        <a href="/mulai" class="flex items-center w-full">
+          <h1 class="text-3xl font-semibold">Mulai</h1>
+          <div class="py-3 flex justify-center items-center pl-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#fff"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </div>
+        </a>
+        <p class="mt-2">
+          Klik Mulai untuk melakukan uji klasifikasi bakteri penyebab infeksi saluran pernafasan akut (ISPA)
+        </p>
+      </div>
+
+      <!-- Tombol di bagian bawah -->
+      <div class="absolute bottom-0 left-0 right-0 flex">
+        <button onclick="showVideo(1)" data-index="1"
+          class="flex-1 hover:drop-shadow-2xl transition-shadow duration-300 py-2 text-white hover:bg-white hover:text-[#898989] hover:font-semibold hover:rounded-t-md bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-0">
+          Obyek
+        </button>
+        <button onclick="showVideo(2)" data-index="2"
+          class="flex-1 hover:drop-shadow-2xl transition-shadow duration-300 py-2 text-white hover:bg-white hover:text-[#898989] hover:font-semibold hover:rounded-t-md bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-0">
+          Metode
+        </button>
+        <button onclick="showVideo(3)" data-index="3"
+          class="flex-1 hover:drop-shadow-2xl transition-shadow duration-300 py-2 text-white hover:bg-white hover:text-[#898989] hover:font-semibold hover:rounded-t-md bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-0">
+          Arsitektur
+        </button>
+        <button onclick="showVideo(4)" data-index="4"
+          class="flex-1 hover:drop-shadow-2xl transition-shadow duration-300 py-2 text-white hover:bg-white hover:text-[#898989] hover:font-semibold hover:rounded-t-md bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-0">
+          Kreator
+        </button>
+        <button onclick="showVideo(5)" data-index="5"
+          class="flex-1 hover:drop-shadow-2xl transition-shadow duration-300 py-2 text-white hover:bg-white hover:text-[#898989] hover:font-semibold hover:rounded-t-md bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-0">
+          Mulai
+        </button>
+      </div>
+    </div>
+
+    <div class="flex">
+      <div class="flex-1 py-3 flex justify-center items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#898989"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path
+            d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z">
+          </path>
+        </svg>
+      </div>
+      <div class="flex-1 py-3 flex justify-center items-center ">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#898989"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path
+            d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+          </path>
+        </svg>
+      </div>
+      <div class="flex-1 py-3 flex justify-center items-center ">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#898989"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+          <rect x="9" y="9" width="6" height="6"></rect>
+          <line x1="9" y1="1" x2="9" y2="4"></line>
+          <line x1="15" y1="1" x2="15" y2="4"></line>
+          <line x1="9" y1="20" x2="9" y2="23"></line>
+          <line x1="15" y1="20" x2="15" y2="23"></line>
+          <line x1="20" y1="9" x2="23" y2="9"></line>
+          <line x1="20" y1="14" x2="23" y2="14"></line>
+          <line x1="1" y1="9" x2="4" y2="9"></line>
+          <line x1="1" y1="14" x2="4" y2="14"></line>
+        </svg>
+      </div>
+      <div class="flex-1 py-3 flex justify-center items-center ">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#898989"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+      </div>
+      <div class="flex-1 py-3 flex justify-center items-center ">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#898989"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="5 3 19 12 5 21 5 3"></polygon>
+        </svg>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    var loadingScreen = document.querySelector(".loadingScreen");
+
+    window.addEventListener('load', function () {
+      loadingScreen.style.display = 'none';
+    })
+
+    function showVideo(index) {
+      // Sembunyikan semua video dan teks
+      const videos = document.querySelectorAll('.video');
+      const texts = document.querySelectorAll('[id^="text"]');
+      const buttons = document.querySelectorAll('button');
+
+      videos.forEach(video => video.classList.add('hidden'));
+      texts.forEach(text => text.classList.add('hidden'));
+      buttons.forEach(button => button.classList.remove('active-btn'));
+
+      // Tampilkan video dan teks yang dipilih
+      document.getElementById(`video${index}`).classList.remove('hidden');
+      document.getElementById(`text${index}`).classList.remove('hidden');
+      buttons[index - 0].classList.add('active-btn');
+    }
+
+    // Tampilkan video dan teks pertama saat halaman pertama kali dimuat
+    showVideo(1);
+  </script>
+</body>
+
+</html>

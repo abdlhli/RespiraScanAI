@@ -1,0 +1,3 @@
+# Ignore files with .h5 or .keras extensions
+*.h5
+*.keras
