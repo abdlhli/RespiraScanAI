@@ -7,9 +7,31 @@ import numpy as np
 app = Flask(__name__)
 model = load_model('app/model/model_bakteri_inception_resnet_v2.keras')
 
+
 @app.route('/')
 def index():
     return render_template('index.html')
+
+
+@app.route('/obyek')
+def obyek():
+    return render_template('obyek.html')
+
+
+@app.route('/metode')
+def metode():
+    return render_template('metode.html')
+
+
+@app.route('/arsitektur')
+def arsitektur():
+    return render_template('arsitektur.html')
+
+
+@app.route('/kreator')
+def kreator():
+    return render_template('kreator.html')
+
 
 @app.route('/mulai', methods=['GET', 'POST'])
 def mulai():
@@ -27,12 +49,12 @@ def mulai():
         img = image.load_img(img_path, target_size=(250, 250))
         img_array = image.img_to_array(img)
         img_array = np.expand_dims(img_array, axis=0)
-        img_array /= 255.0  
+        img_array /= 255.0
 
         prediction = model.predict(img_array)
 
         predicted_class = np.argmax(prediction)
-        confidence = np.max(prediction) 
+        confidence = np.max(prediction)
         class_labels = ["Corynebacterium Diphteriae", "Mycobacterium Tuberculosis",
                         "Neisseria Gonorroeae", "Staphylococcus Aureus", "Streptococcus Pneumoniae"]
         predicted_label = class_labels[predicted_class]
@@ -41,6 +63,7 @@ def mulai():
         resultwithconfident = f"Bakteri {predicted_label}, Dengan Confidence {confidence:.2%}"
 
     return render_template('mulai.html', result=result, uploaded_image=img_filename, resultwithconfident=resultwithconfident)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

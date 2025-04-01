@@ -1,0 +1,225 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deteksi Bakteri Ispa</title>
+    <link rel="shortcut icon" href="/static/POLIJE TRANSPARAN.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.1.1/flowbite.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        h1 {
+            font-family: 'Lexend Deca', sans-serif;
+            font-weight: 700;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        video {
+            width: 100%;
+            height: 800px;
+            object-fit: cover;
+        }
+
+        .active-btn {
+            background-color: white;
+            color: #898989 !important;
+            font-weight: 600;
+            border-start-start-radius: 0.375rem;
+            border-start-end-radius: 0.375rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .loadingScreen {
+            position: absolute;
+            z-index: 5;
+            width: 100%;
+            height: 100vh;
+            background-color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1em;
+            transition: 2s ease;
+            cursor: progress;
+        }
+
+        .wrapper:hover {
+            transform: scale(1.2);
+        }
+
+        .text {
+            color: white;
+            font-weight: 800;
+        }
+
+        .dot {
+            background: white;
+            height: 0.65em;
+            width: 0.65em;
+            border-radius: 50%;
+            animation: move 0.6s ease infinite;
+        }
+
+        @keyframes move {
+            0% {
+                transform: translateX(50%);
+            }
+
+            50% {
+                transform: translateX(-50%);
+            }
+
+            100% {
+                transform: translateX(50%);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+    <div class="loadingScreen">
+        <div class="wrapper">
+            <div class="dot"></div>
+            <span class="text">Loading</span>
+        </div>
+    </div>
+    <div class="px-4">
+
+        {% include 'components/navbar.html' %}
+
+        <div class="flex flex-col max-w-screen-md mx-auto px-4 md:px-16">
+            <div class="flex flex-col items-center justify-start mt-4 max-w-screen-md">
+                <h1 class="font-bold mb-10 text-start text-2xl">Bakteri Penyebab Infeksi Saluran Pernapasan Akut (ISPA)
+                    Yang
+                    Digunakan untuk Model Pelatihan Pada Project
+                </h1>
+            </div>
+
+            <div class="flex items-center space-x-4 mb-7">
+                <img class="w-12 h-12 rounded-full" src="/static/Gambar WhatsApp 2023-11-21 pukul 00.23.34_8894396f.jpg"
+                    alt="Profile Picture">
+                <div class="leading-tight">
+                    <p class="font-bold text-sm">Abdullah Ali</p>
+                    <p class="text-gray-500 text-sm">Penulis - 17 Agustus 2024</p>
+                </div>
+            </div>
+
+            <div>
+                <img class="w-full rounded-xl" src="/static/pexels-photo-9007761.jpeg" alt="Image">
+                <p class="text-sm justify-center text-center mt-4">Foto oleh <a
+                        href="https://www.pexels.com/photo/microscope-shot-9007761/" class="underline"
+                        target="_blank">Turek</a> di <a href="https://www.pexels.com/" class="underline"
+                        target="_blank">Pexels</a></p>
+            </div>
+
+            <div class="items-start justify-start mt-6 max-w-screen-md ">
+                <p class="mb-5 text-justify">Infeksi Saluran Pernapasan Akut (ISPA) merupakan
+                    penyakit yang sering terjadi di masyarakat dan dianggap normal atau tidak berbahaya. penyakit
+                    saluran pernapasan atas atau bawah yang sering terjadi di masyarakat. ISPA dapat menimbulkan
+                    berbagai spektrum penyakit dari ringan hingga parah dan mematikan, tergantung pada patogen dan
+                    faktor lingkungan serta faktor pejamu (Suarnianti & Kadrianti, 2019). ISPA merupakan penyebab utama
+                    morbiditas dan mortalitas global, dengan angka kematian mencapai 4,25 juta setiap tahun. (World
+                    Health Organization, 2019). ISPA memiliki banyak jenis dan dapat disebabkan oleh infeksi virus
+                    maupun bakteri. Dalam penelitian ini, penulis akan fokus pada klasifikasi bakteri Mycobacterium
+                    tuberculosis, Corynebacterium diphteriae, Neisseria gonorrhoeae, Staphylococcus aureus, dan
+                    Streptococcus pneumoniae.
+                </p>
+            </div>
+
+            <p class="font-bold">1. Mycobacterium tuberculosis</p>
+            <div class="ml-4">
+                <p class="mb-5 text-justify text-sm md:text-base">Tuberkulosis merupakan penyakit infeksi menular yang
+                    disebabkan oleh agen infeksi bakteri Mycobacterium tuberculosis yang umumnya menyerang organ paru
+                    pada manusia. Penyakit ini ditularkan oleh penderita BTA positif yang menyebar melalui droplet
+                    nuclei
+                    yang keluar saat penderita batuk ataupun bersin. Bakteri yang menyebar di udara dapat dihirup oleh
+                    orang sehat sehingga dapat menyebabkan infeksi. M. tuberculosis merupakan bakteri Gram positif yang
+                    bersifat aerob obligat (bakteri yang mutlak memerlukan oksigen bebas dalam hidupnya), tidak
+                    mempunyai
+                    endospora dan kapsul, tidak motil, tahan terhadap asam, tumbuh pada suhu 37℃ dengan pertumbuhan yang
+                    lambat yaitu 2-60 hari. Genus bakteri ini mempunyai karakteristik yang unik karena memiliki dinding
+                    sel yang kaya akan lipid dan lapisan tebal peptidoglikan yang mengandung asam mikolat,
+                    arabinogalaktan, dan lipoarabinomanan. (Mar’Iyah, 2021)
+                </p>
+                <div class="flex justify-center">
+                    <img class="w-3/4 rounded-xl" src="/static/5789_lores.jpg" alt="Image">
+                </div>
+                <p class="text-sm text-center mt-4 mb-12">Foto oleh <a href="https://phil.cdc.gov/details.aspx?pid=5789"
+                        class="underline" target="_blank">CDC/
+                        Dr. George P. Kubica</a> di <a href="https://phil.cdc.gov/default.aspx" class="underline"
+                        target="_blank">Public Health Image Library (PHIL)</a>
+                </p>
+            </div>
+
+            <p class="font-bold">2. Corynebacterium diphteriae</p>
+            <div class="ml-4">
+                <p class="mb-5 text-justify text-sm md:text-base">Corynebacterium diphtheriae merupakan bakteri Gram
+                    positif
+                    berbentuk basil dan bersifat aerob. Bakteri ini umumnya hanya mengakibatkan infeksi pada saluran
+                    pernapasan atas (upper respiratory tract). Selain itu, C. diphtheriae juga terkadang dapat
+                    mengakibatkan
+                    infeksi pada lambung, paru-paru, membran kulit dan organ lainnya. Terdapat empat subspesies
+                    (biotype)
+                    difteri, yaitu: C. d. mitis, C. d. intermedius, C. d. gravis, and C. d. belfanti. Keempat subspesies
+                    ini
+                    dapat dibedakan dengan beberapa cara seperti ukuran koloni pada media padat, karakteristik
+                    pertumbuhan
+                    di media cair dan kemampuan memfermentasi pati dan keparahan penyakit yang dihasilkan. (Tjengal
+                    dkk.,
+                    2019)
+                </p>
+                <div class="flex justify-center">
+                    <img class="w-3/4 rounded-xl" src="/static/7323_lores.jpg" alt="Image">
+                </div>
+                <p class="text-sm text-center mt-4 mb-12">Foto oleh <a href="https://phil.cdc.gov/details.aspx?pid=7323"
+                        class="underline" target="_blank">CDC/
+                        Dr. P.B. Smith</a> di <a href="https://phil.cdc.gov/default.aspx" class="underline"
+                        target="_blank">Public Health Image Library (PHIL)</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var loadingScreen = document.querySelector(".loadingScreen");
+
+        window.addEventListener('load', function () {
+            loadingScreen.style.display = 'none';
+        })
+
+        function showVideo(index) {
+            const videos = document.querySelectorAll('.video');
+            const texts = document.querySelectorAll('[id^="text"]');
+            const buttons = document.querySelectorAll('button');
+
+            videos.forEach(video => video.classList.add('hidden'));
+            texts.forEach(text => text.classList.add('hidden'));
+            buttons.forEach(button => button.classList.remove('active-btn'));
+
+            document.getElementById(`video${index}`).classList.remove('hidden');
+            document.getElementById(`text${index}`).classList.remove('hidden');
+            buttons[index - 0].classList.add('active-btn');
+        }
+
+        showVideo(1);
+    </script>
+</body>
+
+</html>
