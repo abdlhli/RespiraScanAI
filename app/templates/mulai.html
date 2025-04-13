@@ -14,6 +14,8 @@
         rel="stylesheet" />
     <link rel="stylesheet" href="css/mulai.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
 </head>
 
 <body class="px-2 sm:px-4">
@@ -38,7 +40,7 @@
                             d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z"
                             clip-rule="evenodd" />
                     </svg>
-                    <img id="preview-image" class="hidden mx-auto h-32 w-32 rounded-lg" />
+                    <img id="preview-image" class="hidden mx-auto h-64 w-full rounded-lg" />
                     <div class="mt-4 flex text-sm leading-6 text-gray-600">
                         <label id="upload-label" for="file-upload"
                             class="relative cursor-pointer rounded-md bg-white font-semibold text-[#7fccf1] focus-within:outline-none focus-within:ring-2 focus-within:ring-[#7fccf1] focus-within:ring-offset-2 hover:text-[#1f9ed8]">
@@ -50,10 +52,18 @@
                 </div>
             </div>
 
-            <div class="flex justify-center mt-4 mb-12 sm:mb-24">
+            <div class="flex justify-center items-center gap-2 mt-4 mb-12 sm:mb-24 mx-4 sm:mx-44">
                 <button id="submit-button" type="submit" disabled
-                    class="bg-[#7fccf1] hover:bg-[#1f9ed8] rounded text-white w-full sm:w-8/12 p-2 font-semibold cursor-not-allowed">
+                    class="bg-[#7fccf1] hover:bg-[#1f9ed8] rounded text-white flex-grow p-2 font-semibold cursor-not-allowed">
                     <span id="button-text">Kirim</span>
+                </button>
+                <button id="reset-button" type="button"
+                    class="bg-gray-200 hover:bg-gray-300 rounded text-gray-800 w-10 h-10 flex items-center justify-center hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg>
                 </button>
             </div>
         </form>
@@ -66,15 +76,15 @@
                     Contoh Dari Bakteri <br />
                     {{ result }}
                 </h1>
-                {% if 'Streptococcus Pneumoniae' in result %}
+                {% if 'Streptococcus pneumoniae' in result %}
                 <img width="250" src="/static/sp_1.jpg" alt="Bakteri" />
-                {% elif 'Corynebacterium Diphteriae' in result %}
+                {% elif 'Corynebacterium diphteriae' in result %}
                 <img width="250" src="/static/D5.jpg" alt="Bakteri" />
-                {% elif 'Mycobacterium Tuberculosis' in result %}
+                {% elif 'Mycobacterium tuberculosis' in result %}
                 <img width="250" src="/static/mts1.jpg" alt="Bakteri" />
-                {% elif 'Neisseria Gonorroeae' in result %}
+                {% elif 'Pharyngitis' in result %}
                 <img width="250" src="/static/go_3.jpg" alt="Bakteri" />
-                {% elif 'Staphylococcus Aureus' in result %}
+                {% elif 'Staphylococcus aureus' in result %}
                 <img width="250" src="/static/sa_1.jpg" alt="Bakteri" />
                 {% endif %}
             </div>
@@ -130,53 +140,145 @@
             <div class="flex items-start space-x-2">
                 <span class="">2.</span>
                 <p class="text-gray-600">
+                    Setelah memilih gambar, klik <span class="font-semibold text-[#7fccf1]">“Crop & Lanjutkan</span>
+                    untuk
+                    memotong area yang relevan.
+                </p>
+            </div>
+            <div class="flex items-start space-x-2">
+                <span class="">3.</span>
+                <p class="text-gray-600">
                     Setelah itu, klik tombol <span class="font-semibold text-[#7fccf1]">“Kirim”</span> untuk memproses
                     gambar
                     yang akan diklasifikasikan.
                 </p>
             </div>
             <div class="flex items-start space-x-2">
-                <span class="">3.</span>
+                <span class="">4.</span>
                 <p class="text-gray-600">
                     Tunggu hingga proses selesai, dan hasil klasifikasi gambar bakteri akan ditampilkan.
                 </p>
             </div>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.1.1/flowbite.min.js">
-    </script>
+
+    <!-- Crop Modal -->
+    <div id="cropModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden z-50">
+        <div class="relative p-4 w-full max-w-xl mx-auto mt-10">
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="mb-4">
+                    <h3 class="text-xl font-semibold text-gray-900">Crop Gambar</h3>
+                </div>
+                <div class="crop-container mb-4">
+                    <img id="cropImage" src="" style="max-width: 100%; max-height: 60vh;">
+                </div>
+                <div class="flex justify-end gap-4">
+                    <button id="cancelCrop" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300">
+                        Batal
+                    </button>
+                    <button id="cropButton" class="px-4 py-2 bg-[#7fccf1] text-white rounded-lg hover:bg-[#1f9ed8]">
+                        Crop & Lanjutkan
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.1.1/flowbite.min.js"></script>
 
     <script>
+        let cropper = null;
+
         function previewFile() {
-            const fileInput = document.getElementById('file-upload');
-            const submitButton = document.getElementById('submit-button');
-            const preview = document.getElementById('preview-image');
-            const icon = document.getElementById('icon');
-            const file = fileInput.files[0];
-            const reader = new FileReader();
-
-            const uploadLabel = document.getElementById('upload-label');
-            const fileHint = document.getElementById('file-hint');
-
-            reader.addEventListener('load', function () {
-                preview.src = reader.result;
-                preview.classList.remove('hidden');
-                icon.classList.add('hidden');
-
-                uploadLabel.classList.add('hidden');
-                fileHint.classList.add('hidden');
-            }, false);
-
+            const file = document.getElementById('file-upload').files[0];
             if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    // Show crop modal
+                    document.getElementById('cropModal').classList.remove('hidden');
+                    const image = document.getElementById('cropImage');
+                    image.src = e.target.result;
+
+                    // Initialize cropper
+                    if (cropper) {
+                        cropper.destroy();
+                    }
+                    cropper = new Cropper(image, {
+                        aspectRatio: 1,
+                        viewMode: 1,
+                        autoCropArea: 1
+                    });
+                };
                 reader.readAsDataURL(file);
-                submitButton.disabled = false;
-                submitButton.classList.remove('cursor-not-allowed');
-            } else {
-                submitButton.disabled = true;
-                submitButton.classList.add('cursor-not-allowed');
             }
         }
 
+        function resetForm() {
+            const fileInput = document.getElementById('file-upload');
+            const preview = document.getElementById('preview-image');
+            const icon = document.getElementById('icon');
+            const uploadLabel = document.getElementById('upload-label');
+            const submitButton = document.getElementById('submit-button');
+            const resetButton = document.getElementById('reset-button');
+
+            fileInput.value = '';
+            preview.classList.add('hidden');
+            icon.classList.remove('hidden');
+            uploadLabel.classList.remove('hidden');
+            submitButton.disabled = true;
+            submitButton.classList.add('cursor-not-allowed');
+            resetButton.classList.add('hidden');
+        }
+
+        document.getElementById('cancelCrop').addEventListener('click', function () {
+            document.getElementById('cropModal').classList.add('hidden');
+            document.getElementById('file-upload').value = '';
+        });
+
+        document.getElementById('cropButton').addEventListener('click', function () {
+            if (cropper) {
+                const canvas = cropper.getCroppedCanvas({
+                    width: 250,
+                    height: 250
+                });
+
+                // Update preview
+                const preview = document.getElementById('preview-image');
+                const icon = document.getElementById('icon');
+                preview.src = canvas.toDataURL();
+                preview.classList.remove('hidden');
+                icon.classList.add('hidden');
+
+                // Enable submit button
+                const submitButton = document.getElementById('submit-button');
+                submitButton.disabled = false;
+                submitButton.classList.remove('cursor-not-allowed');
+
+                // Hide modal and upload label
+                document.getElementById('cropModal').classList.add('hidden');
+                document.getElementById('upload-label').classList.add('hidden');
+
+                // Show reset button
+                document.getElementById('reset-button').classList.remove('hidden');
+
+                // Convert canvas to blob for form submission
+                canvas.toBlob(function (blob) {
+                    const fileInput = document.getElementById('file-upload');
+                    const file = new File([blob], 'cropped-image.jpg', { type: 'image/jpeg' });
+
+                    // Create a new DataTransfer object and add the file
+                    const dataTransfer = new DataTransfer();
+                    dataTransfer.items.add(file);
+
+                    // Set the new file list to the input
+                    fileInput.files = dataTransfer.files;
+                }, 'image/jpeg');
+            }
+        });
+
+        document.getElementById('reset-button').addEventListener('click', resetForm);
+
+        // Update form submission
         document.getElementById('upload-form').addEventListener('submit', function (e) {
             const button = document.getElementById('submit-button');
             const buttonText = document.getElementById('button-text');
@@ -188,4 +290,3 @@
 </body>
 
 </html>
-```

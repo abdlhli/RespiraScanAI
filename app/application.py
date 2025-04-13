@@ -3,6 +3,8 @@ from keras.preprocessing import image
 from keras.models import load_model
 from werkzeug.utils import secure_filename
 import numpy as np
+from PIL import Image
+import io
 
 app = Flask(__name__)
 model = load_model('app/model/model_bakteri_inception_resnet_v2.keras')
@@ -43,12 +45,24 @@ def mulai():
 
     if request.method == 'POST':
         img = request.files['file']
+
+        # Convert FileStorage to PIL Image
+        img_data = img.read()
+        img_pil = Image.open(io.BytesIO(img_data))
+
+        # Convert RGBA to RGB if necessary
+        if img_pil.mode in ('RGBA', 'LA'):
+            background = Image.new('RGB', img_pil.size, (255, 255, 255))
+            background.paste(img_pil, mask=img_pil.split()[-1])
+            img_pil = background
+
+        # Save the image
         img_filename = secure_filename(img.filename)
         img_path = "app/static/uploads/" + img_filename
-        img.save(img_path)
+        img_pil.save(img_path)
 
-        img = image.load_img(img_path, target_size=(250, 250))
-        img_array = image.img_to_array(img)
+        # Load and preprocess image for prediction
+        img_array = image.img_to_array(img_pil.resize((250, 250)))
         img_array = np.expand_dims(img_array, axis=0)
         img_array /= 255.0
 
@@ -56,11 +70,10 @@ def mulai():
 
         predicted_class = np.argmax(prediction)
         confidence = np.max(prediction)
-        class_labels = ["Corynebacterium Diphteriae", "Mycobacterium Tuberculosis",
-                        "Neisseria Gonorroeae", "Staphylococcus Aureus", "Streptococcus Pneumoniae"]
+        class_labels = ["Corynebacterium diphteriae", "Mycobacterium tuberculosis",
+                        "Pharyngitis", "Staphylococcus aureus", "Streptococcus pneumoniae"]
         predicted_label = class_labels[predicted_class]
 
-        # Create list of tuples with bacteria names and their percentages
         percentages = list(zip(class_labels, prediction[0]))
 
         result = predicted_label
