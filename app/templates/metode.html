@@ -104,8 +104,81 @@
 
         {% include 'components/navbar.html' %}
 
-        <div class="max-w-screen-xl mx-auto">
+        <div class="flex flex-col max-w-screen-md mx-auto px-4 md:px-16">
+            <div class="flex flex-col items-center justify-start mt-4 max-w-screen-md">
+                <h1 class="font-bold mb-10 text-start text-2xl">Metode Klasifikasi yang digunakan dalam Deteksi Dini
+                    Penyakit Infeksi Saluran Pernafasan Akut (ISPA)
+                </h1>
+            </div>
 
+            <div class="flex items-center space-x-4 mb-7">
+                <img class="w-12 h-12 rounded-full" src="/static/Gambar WhatsApp 2023-11-21 pukul 00.23.34_8894396f.jpg"
+                    alt="Profile Picture">
+                <div class="leading-tight">
+                    <p class="font-bold text-sm">Abdullah Ali</p>
+                    <p class="text-gray-500 text-sm">Penulis - 17 Agustus 2024</p>
+                </div>
+            </div>
+
+            <div>
+                <img class="w-full rounded-xl" src="/static/CNN intro.png" alt="Image">
+                <p class="text-sm justify-center text-center mt-4">Foto oleh <a
+                        href="https://www.pycodemates.com/2023/06/introduction-to-convolutional-neural-networks.html"
+                        class="underline" target="_blank">Sidharth</a> di <a href="https://www.pycodemates.com/"
+                        class="underline" target="_blank">PyCodeMates</a></p>
+            </div>
+
+            <div class="items-start justify-start mt-6 max-w-screen-md ">
+                <p class="mb-5 text-justify">Convolutional neural network (CNN) adalah jenis neural network yang
+                    dirancang khusus untuk menangani masalah pengolahan citra. CNN merupakan metode yang efektif untuk
+                    mengklasifikasikan, mengidentifikasi, dan mengenali pola di dalam citra. CNN mampu memahami detail
+                    gambar dengan lebih baik karena memiliki arsitektur yang sesuai dengan cara otak manusia memproses
+                    informasi visual. Data yang digunakan pada CNN adalah data dua dimensi, seperti citra atau suara,
+                    dan menggunakan operasi konvolusi dalam matriks serta bobot yang berbentuk empat dimensi yang
+                    merupakan sekumpulan kernel konvolusi. Dengan sifat proses konvolusi tersebut, CNN hanya dapat
+                    digunakan pada data yang memiliki struktur data dua dimensi. (Anhar & Putra, 2023)
+                </p>
+
+                <div>
+                    <img class="w-full rounded-xl"
+                        src="/static/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way.webp"
+                        alt="Image">
+                    <p class="text-sm justify-center text-center mt-4">Foto oleh <a
+                            href="https://saturncloud.io/blog/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way/"
+                            class="underline" target="_blank"> Sumit Saha</a> di <a href="https://saturncloud.io/"
+                            class="underline" target="_blank">SaturnCloud</a>
+                    </p>
+                </div>
+                <br>
+
+                <p class="mb-5 text-justify">Pada Gambar diatas, Secara sederhana ada dua bagian utama dalam operasi CNN
+                    yaitu pembelajaran fitur dan
+                    klasifikasi. Dalam bagian pembelajaran fitur, terdapat tiga proses yang dijalankan, yaitu:
+                    <br>
+                    1. Operasi konvolusi, yang merupakan proses utama dalam CNN. Tujuannya adalah untuk mengekstrak
+                    fitur dari citra masukan.
+                    <br>
+                    2. ReLu (Rectified Linear Unit), yaitu fungsi aktivasi yang memiliki output 0 jika input kurang dari
+                    0. Artinya, jika x <= 0 maka x=0 dan jika x> 0 maka x = x.
+                        <br>
+                        3. Pooling, yang digunakan untuk mengurangi jumlah parameter pada peta fitur dan mengambil
+                        informasi yang paling penting dengan operasi down-sampling. Metode pooling yang umum digunakan
+                        adalah max pooling dan average pooling.
+                        <br>
+                        <br>
+                        Pada bagian klasifikasi, terdapat tiga proses yaitu:
+                        <br>
+                        1. Flatten, layer ini mengubah output dari hasil layer konvolusi menjadi satu kolom feature
+                        vector untuk digunakan pada layer terhubung secara penuh.
+                        <br>
+                        2. Fully connected layer, layer ini mirip dengan Artificial Neural Network (ANN) untuk melakukan
+                        klasifikasi.
+                        <br>
+                        3. Softmax, untuk mendapatkan nilai probabilitas dari setiap kelas, nilai probabilitas kelas
+                        tertinggi merupakan output prediksi kelas yang diperoleh. Proses-proses tersebut merupakan
+                        operasi yang umum digunakan dalam berbagai model CNN.
+                </p>
+            </div>
         </div>
     </div>
 

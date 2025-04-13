@@ -28,7 +28,7 @@
                     menjadi penyebab infeksi saluran pernapasan akut (ISPA).</p>
             </div>
         </div>
-        <form method="POST" enctype="multipart/form-data" class="flex flex-col justify-center">
+        <form method="POST" enctype="multipart/form-data" class="flex flex-col justify-center" id="upload-form">
             <div
                 class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 mx-4 sm:mx-44 py-10 sm:py-20">
                 <div class="text-center">
@@ -52,7 +52,9 @@
 
             <div class="flex justify-center mt-4 mb-12 sm:mb-24">
                 <button id="submit-button" type="submit" disabled
-                    class="bg-[#7fccf1] hover:bg-[#1f9ed8] rounded text-white w-full sm:w-8/12 p-2 font-semibold cursor-not-allowed">Kirim</button>
+                    class="bg-[#7fccf1] hover:bg-[#1f9ed8] rounded text-white w-full sm:w-8/12 p-2 font-semibold cursor-not-allowed">
+                    <span id="button-text">Kirim</span>
+                </button>
             </div>
         </form>
 
@@ -90,19 +92,27 @@
                 inceptionResNet-V2, Gambar tersebut terindentifikasi sebagai:</h1>
 
             <p class="font-semibold">
-                {{ resultwithconfident }} Yang Dapat Menyebabkan Penyakit
-                {% if 'Streptococcus Pneumoniae' in result %}
-                Pneumoniae
-                {% elif 'Corynebacterium Diphteriae' in result %}
-                Difteri
-                {% elif 'Mycobacterium Tuberculosis' in result %}
-                Tuberkulosis (TBC)
-                {% elif 'Neisseria Gonorroeae' in result %}
-                Gonoreae
-                {% elif 'Staphylococcus Aureus' in result %}
-                Selulitis
-                {% endif %}
+                {{ resultwithconfident }}
             </p>
+
+            <div class="mt-8">
+                <table class="min-w-full border-collapse border border-gray-300">
+                    <thead>
+                        <tr>
+                            <th class="border border-gray-300 px-4 py-2">Jenis Bakteri</th>
+                            <th class="border border-gray-300 px-4 py-2">Persentase</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for bacteria, percentage in percentages %}
+                        <tr>
+                            <td class="border border-gray-300 px-4 py-2">{{ bacteria }}</td>
+                            <td class="border border-gray-300 px-4 py-2">{{ "%.2f"|format(percentage*100) }}%</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
         {% endif %}
 
@@ -166,7 +176,16 @@
                 submitButton.classList.add('cursor-not-allowed');
             }
         }
+
+        document.getElementById('upload-form').addEventListener('submit', function (e) {
+            const button = document.getElementById('submit-button');
+            const buttonText = document.getElementById('button-text');
+            button.disabled = true;
+            button.classList.add('cursor-not-allowed');
+            buttonText.textContent = 'Menunggu...';
+        });
     </script>
 </body>
 
 </html>
+```

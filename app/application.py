@@ -39,6 +39,7 @@ def mulai():
     img_path = None
     img_filename = None
     resultwithconfident = None
+    percentages = []
 
     if request.method == 'POST':
         img = request.files['file']
@@ -59,10 +60,14 @@ def mulai():
                         "Neisseria Gonorroeae", "Staphylococcus Aureus", "Streptococcus Pneumoniae"]
         predicted_label = class_labels[predicted_class]
 
+        # Create list of tuples with bacteria names and their percentages
+        percentages = list(zip(class_labels, prediction[0]))
+
         result = predicted_label
         resultwithconfident = f"Bakteri {predicted_label}, Dengan Confidence {confidence:.2%}"
 
-    return render_template('mulai.html', result=result, uploaded_image=img_filename, resultwithconfident=resultwithconfident)
+    return render_template('mulai.html', result=result, uploaded_image=img_filename,
+                           resultwithconfident=resultwithconfident, percentages=percentages)
 
 
 if __name__ == '__main__':

@@ -1,7 +1,7 @@
-<nav class="bg-white border-gray-200 pb-10">
+<nav class="bg-white border-gray-200 pb-2">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4">
         <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <span class="self-center text-2xl text-gray-400 font-semibold whitespace-nowrap">RespiraScanAI</span>
+            <span class="self-center text-2xl text-gray-400 font-semibold whitespace-nowrap">RespiraScan</span>
         </a>
         <button data-collapse-toggle="navbar-default" type="button"
             class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
@@ -39,3 +39,14 @@
         </div>
     </div>
 </nav>
+<script src="https://cdn.jsdelivr.net/npm/flowbite@1.6.5/dist/flowbite.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const toggleButton = document.querySelector('[data-collapse-toggle="navbar-default"]');
+        const navbar = document.getElementById('navbar-default');
+
+        toggleButton.addEventListener('click', () => {
+            navbar.classList.toggle('hidden');
+        });
+    });
+</script>
