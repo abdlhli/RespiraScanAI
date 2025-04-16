@@ -106,5 +106,4 @@ RespiraScanAI/
 
 Untuk pertanyaan dan saran, silakan hubungi:
 
-- Email: [abdullahali.and1@gmail.com](mailto:abdullahali.and1@gmail.com)
 - LinkedIn: [Abdullah Ali](https://linkedin.com/in/abdlhli)
