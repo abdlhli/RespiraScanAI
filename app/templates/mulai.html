@@ -21,11 +21,58 @@
 <body class="px-2 sm:px-4">
     {% include 'components/navbar.html' %}
     <div class="flex flex-col max-w-screen-lg mx-auto">
+        <!-- New Header Section -->
+        <div class="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl p-6 mt-8 mb-12 mx-4">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex</div>-1">
+                    <h1 class="text-3xl font-bold text-gray-800 mb-4">Deteksi Bakteri ISPA</h1>
+                    <p class="text-gray-600 mb-4">Sistem ini menggunakan teknologi AI untuk membantu mengidentifikasi
+                        jenis bakteri penyebab ISPA melalui analisis gambar mikroskop.</p>
+                    <div class="flex items-center gap-2 text-sm text-gray-500">
+                        <span>Deteksi Otomatis</span>
+                        <span class="mx-2">•</span>
+                        <span>Hasil Instan</span>
+                        <span class="mx-2">•</span>
+                        <span>Mudah Digunakan</span>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <img src="/static/microscope-illustration.png" alt="Microscope Illustration"
+                        class="w-80 h-full object-contain">
+                </div>
+            </div>
+        </div>
+
+        <!-- Bacteria Types Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mx-4 mb-12">
+            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                <h3 class="font-semibold text-gray-800 mb-2">Streptococcus pneumoniae</h3>
+                <p class="text-sm text-gray-600">Bakteri yang umum menyebabkan pneumonia</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                <h3 class="font-semibold text-gray-800 mb-2">Staphylococcus aureus</h3>
+                <p class="text-sm text-gray-600">Penyebab umum infeksi saluran pernapasan</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                <h3 class="font-semibold text-gray-800 mb-2">Mycobacterium tuberculosis</h3>
+                <p class="text-sm text-gray-600">Bakteri penyebab tuberkulosis</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                <h3 class="font-semibold text-gray-800 mb-2">Corynebacterium diphtheriae</h3>
+                <p class="text-sm text-gray-600">Penyebab utama penyakit difteri</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                <h3 class="font-semibold text-gray-800 mb-2">Pharyngitis</h3>
+                <p class="text-sm text-gray-600">Infeksi yang menyebabkan radang tenggorokan</p>
+            </div>
+        </div>
+
+        <!-- Continue with existing content -->
         <div class="flex flex-col items-center justify-center mt-4 sm:mt-12 max-w-screen-lg mx-auto">
             <div class="flex flex-col items-center justify-between">
                 <h1 class="font-bold max-w-xl mb-5 text-center text-xl sm:text-2xl">Deteksi Bakteri ISPA: Unggah Gambar
                     Anda</h1>
-                <p class="text-center px-4 sm:px-28">Upload gambar bakteri Yang Anda Miliki untuk mengetahui jenis
+                <p class="text-center mb-2 px-4 sm:px-28">Upload gambar bakteri Yang Anda Miliki untuk mengetahui jenis
                     bakteri yang
                     menjadi penyebab infeksi saluran pernapasan akut (ISPA).</p>
             </div>
@@ -93,8 +140,8 @@
                     Gambar Yang<br />
                     Diunggah User
                 </h1>
-                <img width="250" class="w-48 sm:w-64"
-                    src="{{ url_for('static', filename='uploads/' + uploaded_image) }}" alt="Bakteri" />
+                <img width="250" class="" src="{{ url_for('static', filename='uploads/' + uploaded_image) }}"
+                    alt="Bakteri" />
             </div>
         </div>
         <div class="flex flex-col justify-center text-center py-6 sm:py-10 space-y-15 mx-4 sm:mx-36 mb-12 sm:mb-24">
@@ -126,7 +173,7 @@
         </div>
         {% endif %}
 
-        <div class="mb-24 sm:mb-44 mx-4 sm:mx-28">
+        <div class="mb-24 sm:mb-24 mx-4 sm:mx-28">
             <h2 class="text-lg sm:text-xl font-bold text-gray-800 pb-2">Panduan Penggunaan Sistem Klasifikasi Gambar
                 Bakteri</h2>
             <div class="flex items-start space-x-2">
@@ -160,6 +207,30 @@
                 </p>
             </div>
         </div>
+
+        <!-- Add FAQ section before the end of the body
+        <div class="mx-4 sm:mx-28 mb-24">
+            <h2 class="text-xl font-bold text-gray-800 mb-6">Frequently Asked Questions</h2>
+            <div class="space-y-4">
+                <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
+                    <h3 class="font-semibold text-gray-800 mb-2">Berapa lama proses deteksi berlangsung?</h3>
+                    <p class="text-gray-600">Proses deteksi biasanya memakan waktu 15 detik - 1 menit tergantung ukuran
+                        gambar.
+                    </p>
+                </div>
+                <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
+                    <h3 class="font-semibold text-gray-800 mb-2">Format gambar apa yang didukung?</h3>
+                    <p class="text-gray-600">Sistem mendukung format gambar JPG, JPEG, dan PNG.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
+                    <h3 class="font-semibold text-gray-800 mb-2">Apakah hasil deteksi selalu akurat?</h3>
+                    <p class="text-gray-600">Meskipun sistem ini memiliki tingkat akurasi yang baik, hasil deteksi tidak
+                        selalu 100% akurat. Sistem ini dirancang sebagai alat bantu awal dan sangat disarankan untuk
+                        selalu memvalidasi hasil dengan ahli mikrobiologi atau profesional kesehatan yang berkompeten.
+                    </p>
+                </div>
+            </div>
+        </div> -->
     </div>
 
     <!-- Crop Modal -->
@@ -264,7 +335,22 @@
                 // Convert canvas to blob for form submission
                 canvas.toBlob(function (blob) {
                     const fileInput = document.getElementById('file-upload');
-                    const file = new File([blob], 'cropped-image.jpg', { type: 'image/jpeg' });
+
+                    // Get current timestamp
+                    const now = new Date();
+                    const timestamp = [
+                        now.getDate(),
+                        now.getMonth() + 1,
+                        now.getFullYear(),
+                        now.getHours(),
+                        now.getMinutes(),
+                        now.getSeconds()
+                    ].join('');
+
+                    // Create filename with timestamp
+                    const filename = `cropped-image-${timestamp}.jpg`;
+
+                    const file = new File([blob], filename, { type: 'image/jpeg' });
 
                     // Create a new DataTransfer object and add the file
                     const dataTransfer = new DataTransfer();

@@ -74,7 +74,10 @@ def mulai():
                         "Pharyngitis", "Staphylococcus aureus", "Streptococcus pneumoniae"]
         predicted_label = class_labels[predicted_class]
 
-        percentages = list(zip(class_labels, prediction[0]))
+        # Sort percentages from highest to lowest
+        percentages = sorted(list(zip(class_labels, prediction[0])),
+                             key=lambda x: x[1],
+                             reverse=True)
 
         result = predicted_label
         resultwithconfident = f"Bakteri {predicted_label}, Dengan Confidence {confidence:.2%}"
