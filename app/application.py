@@ -5,9 +5,26 @@ from werkzeug.utils import secure_filename
 import numpy as np
 from PIL import Image
 import io
+from .model_download import download_model
 
 app = Flask(__name__)
-model = load_model('app/model/model_bakteri_inception_resnet_v2.keras')
+
+# Load model pada variable global
+model = None
+
+
+def load_ai_model():
+    global model
+    if model is None:
+        model_path = download_model()
+        model = load_model(model_path)
+
+# Load model saat startup
+
+
+@app.before_first_request
+def startup():
+    load_ai_model()
 
 
 @app.route('/')
@@ -37,6 +54,10 @@ def kreator():
 
 @app.route('/mulai', methods=['GET', 'POST'])
 def mulai():
+    # Pastikan model sudah diload
+    if model is None:
+        load_ai_model()
+
     result = None
     img_path = None
     img_filename = None

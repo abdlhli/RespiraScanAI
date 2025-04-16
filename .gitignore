@@ -1,6 +1,7 @@
-# # Ignore files with .h5 or .keras extensions
+# # Ignore model files
 # *.h5
 # *.keras
+# app/model/
 
 # Other files to ignore
 __pycache__/
