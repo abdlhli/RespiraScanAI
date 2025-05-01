@@ -151,33 +151,36 @@
                 </div>
                 <br>
 
-                <p class="mb-5 text-justify">Pada Gambar diatas, Secara sederhana ada dua bagian utama dalam operasi CNN
-                    yaitu pembelajaran fitur dan
-                    klasifikasi. Dalam bagian pembelajaran fitur, terdapat tiga proses yang dijalankan, yaitu:
-                    <br>
-                    1. Operasi konvolusi, yang merupakan proses utama dalam CNN. Tujuannya adalah untuk mengekstrak
-                    fitur dari citra masukan.
-                    <br>
-                    2. ReLu (Rectified Linear Unit), yaitu fungsi aktivasi yang memiliki output 0 jika input kurang dari
-                    0. Artinya, jika x <= 0 maka x=0 dan jika x> 0 maka x = x.
-                        <br>
-                        3. Pooling, yang digunakan untuk mengurangi jumlah parameter pada peta fitur dan mengambil
-                        informasi yang paling penting dengan operasi down-sampling. Metode pooling yang umum digunakan
-                        adalah max pooling dan average pooling.
-                        <br>
-                        <br>
-                        Pada bagian klasifikasi, terdapat tiga proses yaitu:
-                        <br>
-                        1. Flatten, layer ini mengubah output dari hasil layer konvolusi menjadi satu kolom feature
-                        vector untuk digunakan pada layer terhubung secara penuh.
-                        <br>
-                        2. Fully connected layer, layer ini mirip dengan Artificial Neural Network (ANN) untuk melakukan
-                        klasifikasi.
-                        <br>
-                        3. Softmax, untuk mendapatkan nilai probabilitas dari setiap kelas, nilai probabilitas kelas
-                        tertinggi merupakan output prediksi kelas yang diperoleh. Proses-proses tersebut merupakan
-                        operasi yang umum digunakan dalam berbagai model CNN.
+                <p class="mb-5 text-justify">
+                    Pada Gambar diatas, Secara sederhana ada dua bagian utama dalam operasi CNN yaitu pembelajaran fitur
+                    dan klasifikasi. Dalam bagian pembelajaran fitur, terdapat tiga proses yang dijalankan, yaitu:
                 </p>
+
+                <div class="mb-5 pl-4">
+                    <ol class="list-decimal space-y-2">
+                        <li>Operasi konvolusi, yang merupakan proses utama dalam CNN. Tujuannya adalah untuk mengekstrak
+                            fitur dari citra masukan.</li>
+                        <li>ReLu (Rectified Linear Unit), yaitu fungsi aktivasi yang memiliki output 0 jika input kurang
+                            dari 0. Artinya, jika x <= 0 maka x=0 dan jika x> 0 maka x = x.</li>
+                        <li>Pooling, yang digunakan untuk mengurangi jumlah parameter pada peta fitur dan mengambil
+                            informasi yang paling penting dengan operasi down-sampling. Metode pooling yang umum
+                            digunakan adalah max pooling dan average pooling.</li>
+                    </ol>
+                </div>
+
+                <p class="mb-3 text-justify">Pada bagian klasifikasi, terdapat tiga proses yaitu:</p>
+
+                <div class="mb-5 pl-4">
+                    <ol class="list-decimal space-y-2">
+                        <li>Flatten, layer ini mengubah output dari hasil layer konvolusi menjadi satu kolom feature
+                            vector untuk digunakan pada layer terhubung secara penuh.</li>
+                        <li>Fully connected layer, layer ini mirip dengan Artificial Neural Network (ANN) untuk
+                            melakukan klasifikasi.</li>
+                        <li>Softmax, untuk mendapatkan nilai probabilitas dari setiap kelas, nilai probabilitas kelas
+                            tertinggi merupakan output prediksi kelas yang diperoleh. Proses-proses tersebut merupakan
+                            operasi yang umum digunakan dalam berbagai model CNN.</li>
+                    </ol>
+                </div>
             </div>
         </div>
     </div>
