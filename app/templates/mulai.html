@@ -43,27 +43,52 @@
             </div>
         </div>
 
-        <!-- Bacteria Types Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mx-4 mb-12">
-            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-                <h3 class="font-semibold text-gray-800 mb-2">Streptococcus pneumoniae</h3>
-                <p class="text-sm text-gray-600">Bakteri yang umum menyebabkan pneumonia</p>
+        <!-- Bacteria Types Section -->
+        <div class="mx-4 mb-12">
+            <div class="mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">Jenis Bakteri yang Dapat Dideteksi</h2>
+                <p class="text-gray-600 mt-2">Sistem ini dapat mengidentifikasi 5 jenis bakteri penyebab ISPA</p>
             </div>
-            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-                <h3 class="font-semibold text-gray-800 mb-2">Staphylococcus aureus</h3>
-                <p class="text-sm text-gray-600">Penyebab umum infeksi saluran pernapasan</p>
-            </div>
-            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-                <h3 class="font-semibold text-gray-800 mb-2">Mycobacterium tuberculosis</h3>
-                <p class="text-sm text-gray-600">Bakteri penyebab tuberkulosis</p>
-            </div>
-            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-                <h3 class="font-semibold text-gray-800 mb-2">Corynebacterium diphtheriae</h3>
-                <p class="text-sm text-gray-600">Penyebab utama penyakit difteri</p>
-            </div>
-            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-                <h3 class="font-semibold text-gray-800 mb-2">Pharyngitis</h3>
-                <p class="text-sm text-gray-600">Infeksi yang menyebabkan radang tenggorokan</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Streptococcus pneumoniae</h3>
+                        <p class="text-gray-600 text-sm mb-2">Bakteri yang umum menyebabkan pneumonia</p>
+                        <span class="inline-block text-xs font-medium text-[#1f9ed8]">Dapat dideteksi</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Staphylococcus aureus</h3>
+                        <p class="text-gray-600 text-sm mb-2">Penyebab umum infeksi saluran pernapasan</p>
+                        <span class="inline-block text-xs font-medium text-[#1f9ed8]">Dapat dideteksi</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Mycobacterium tuberculosis</h3>
+                        <p class="text-gray-600 text-sm mb-2">Bakteri penyebab tuberkulosis</p>
+                        <span class="inline-block text-xs font-medium text-[#1f9ed8]">Dapat dideteksi</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Corynebacterium diphtheriae</h3>
+                        <p class="text-gray-600 text-sm mb-2">Penyebab utama penyakit difteri</p>
+                        <span class="inline-block text-xs font-medium text-[#1f9ed8]">Dapat dideteksi</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Pharyngitis</h3>
+                        <p class="text-gray-600 text-sm mb-2">Infeksi yang menyebabkan radang tenggorokan</p>
+                        <span class="inline-block text-xs font-medium text-[#1f9ed8]">Dapat dideteksi</span>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -90,7 +115,7 @@
                     <img id="preview-image" class="hidden mx-auto h-64 w-full rounded-lg" />
                     <div class="mt-4 flex text-sm leading-6 text-gray-600">
                         <label id="upload-label" for="file-upload"
-                            class="relative cursor-pointer rounded-md bg-white font-semibold text-[#7fccf1] focus-within:outline-none focus-within:ring-2 focus-within:ring-[#7fccf1] focus-within:ring-offset-2 hover:text-[#1f9ed8]">
+                            class="relative cursor-pointer rounded-md bg-white font-semibold text-[#1f9ed8] focus-within:outline-none focus-within:ring-2 focus-within:ring-[#1f9ed8] focus-within:ring-offset-2 hover:text-[#1B8EC2]">
                             <span>Pilih Gambar Bakteri</span>
                             <input id="file-upload" name="file" type="file" class="sr-only" accept=".png, .jpg, .jpeg"
                                 onchange="previewFile()" />
@@ -101,7 +126,7 @@
 
             <div class="flex justify-center items-center gap-2 mt-4 mb-12 sm:mb-24 mx-4 sm:mx-44">
                 <button id="submit-button" type="submit" disabled
-                    class="bg-[#7fccf1] hover:bg-[#1f9ed8] rounded text-white flex-grow p-2 font-semibold cursor-not-allowed">
+                    class="bg-[#1f9ed8] hover:bg-[#1B8EC2] rounded text-white flex-grow p-2 font-semibold cursor-not-allowed">
                     <span id="button-text">Kirim</span>
                 </button>
                 <button id="reset-button" type="button"
@@ -116,121 +141,202 @@
         </form>
 
         {% if result %}
-        <h1 class="font-bold mb-5 flex justify-center text-xl sm:text-2xl">Hasil Klasifikasi</h1>
-        <div class="flex flex-col sm:flex-row justify-center py-5 space-y-6 sm:space-y-0 sm:space-x-10">
-            <div class="text-center flex flex-col items-center">
-                <h1 class="text-sm sm:text-md mb-5 font-semibold">
-                    Contoh Dari Bakteri <br />
-                    {{ result }}
-                </h1>
-                {% if 'Streptococcus pneumoniae' in result %}
-                <img width="250" src="/static/sp_1.jpg" alt="Bakteri" />
-                {% elif 'Corynebacterium diphteriae' in result %}
-                <img width="250" src="/static/D5.jpg" alt="Bakteri" />
-                {% elif 'Mycobacterium tuberculosis' in result %}
-                <img width="250" src="/static/mts1.jpg" alt="Bakteri" />
-                {% elif 'Pharyngitis' in result %}
-                <img width="250" src="/static/go_3.jpg" alt="Bakteri" />
-                {% elif 'Staphylococcus aureus' in result %}
-                <img width="250" src="/static/sa_1.jpg" alt="Bakteri" />
-                {% endif %}
+        <h1 class="font-bold mb-8 flex justify-center text-2xl sm:text-3xl">Hasil Analisis AI</h1>
+
+        <!-- Image Comparison Section -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mx-4 sm:mx-12 mb-8">
+            <!-- Reference Image -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+                <div class="p-4 border-b border-gray-100">
+                    <h2 class="text-lg font-semibold text-gray-800">Gambar Referensi</h2>
+                    <p class="text-sm text-[#1f9ed8] font-medium">{{ result }}</p>
+                </div>
+                <div class="p-4">
+                    {% if 'Streptococcus pneumoniae' in result %}
+                    <img class="w-full w-full object-cover rounded-lg" src="/static/sp_1.jpg" alt="Bakteri Referensi" />
+                    {% elif 'Corynebacterium diphteriae' in result %}
+                    <img class="w-full w-full object-cover rounded-lg" src="/static/D5.jpg" alt="Bakteri Referensi" />
+                    {% elif 'Mycobacterium tuberculosis' in result %}
+                    <img class="w-full w-full object-cover rounded-lg" src="/static/mts1.jpg" alt="Bakteri Referensi" />
+                    {% elif 'Pharyngitis' in result %}
+                    <img class="w-full w-full object-cover rounded-lg" src="/static/go_3.jpg" alt="Bakteri Referensi" />
+                    {% elif 'Staphylococcus aureus' in result %}
+                    <img class="w-full w-full object-cover rounded-lg" src="/static/sa_1.jpg" alt="Bakteri Referensi" />
+                    {% endif %}
+                    <p class="mt-3 text-sm text-gray-500">Contoh gambar dari database sistem</p>
+                </div>
             </div>
-            <div class="text-center flex flex-col items-center">
-                <h1 class="text-sm sm:text-md mb-5 font-semibold">
-                    Gambar Yang<br />
-                    Diunggah User
-                </h1>
-                <img width="250" class="" src="{{ url_for('static', filename='uploads/' + uploaded_image) }}"
-                    alt="Bakteri" />
+
+            <!-- Uploaded Image -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+                <div class="p-4 border-b border-gray-100">
+                    <h2 class="text-lg font-semibold text-gray-800">Gambar Yang Dianalisis</h2>
+                    <p class="text-sm text-gray-500">Sampel yang diunggah</p>
+                </div>
+                <div class="p-4">
+                    <img class="w-full w-full object-cover rounded-lg"
+                        src="{{ url_for('static', filename='uploads/' + uploaded_image) }}"
+                        alt="Gambar Yang Dianalisis" />
+                    <p class="mt-3 text-sm text-gray-500">Gambar yang Anda unggah untuk dianalisis</p>
+                </div>
             </div>
         </div>
+
+        <!-- Result Analysis Section -->
         <div class="flex flex-col justify-center text-center py-6 sm:py-10 space-y-15 mx-4 sm:mx-36 mb-12 sm:mb-24">
-            <h1 class="pb-4">Setelah melalui proses dengan model Convolutional Neural network (CNN) arsitektur
-                inceptionResNet-V2, Gambar tersebut terindentifikasi sebagai:</h1>
+            <div class="bg-blue-50 rounded-lg p-6 mb-8">
+                <h2 class="text-lg font-semibold text-gray-800 mb-3">Hasil Analisis Model AI</h2>
+                <p class="text-gray-600 mb-2">
+                    Menggunakan arsitektur <span class="font-semibold">InceptionResNet-V2</span> dengan Convolutional
+                    Neural Network (CNN)
+                </p>
+                <div class="mt-4 inline-block bg-white px-4 py-2 rounded-full border border-blue-100">
+                    <p class="text-blue-800 font-medium">
+                        {{ resultwithconfident }}
+                    </p>
+                </div>
+            </div>
 
-            <p class="font-semibold">
-                {{ resultwithconfident }}
-            </p>
+            <div class="bg-white rounded-lg border border-gray-200 p-6">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">Detail Hasil Analisis</h3>
+                <p class="text-sm text-gray-600 mb-6">
+                    Berikut adalah perbandingan tingkat kemiripan dengan setiap jenis bakteri dalam database:
+                </p>
+                <div class="grid grid-cols-1 gap-4">
+                    {% for bacteria, percentage in percentages %}
+                    <div
+                        class="bg-white rounded-lg p-4 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="font-semibold text-gray-800">{{ bacteria }}</h3>
+                            <span class="text-sm font-bold text-[#1f9ed8]">{{ "%.1f"|format(percentage*100) }}%</span>
+                        </div>
+                        <div class="relative w-full h-2 bg-gray-200 rounded">
+                            <div class="absolute top-0 left-0 h-2 rounded bg-gradient-to-r from-[#1f9ed8] to-[#1B8EC2]"
+                                style="width: {{ percentage*100 }}%"></div>
+                        </div>
+                        <!-- Confidence Level Indicator -->
+                        <div class="mt-2 flex items-center gap-2">
+                            <span class="text-xs text-gray-500">Tingkat Keyakinan:</span>
+                            <div class="flex items-center">
+                                {% set confidence = percentage*100 %}
+                                {% if confidence >= 80 %}
+                                <span class="text-xs text-green-600 font-medium">Sangat Tinggi</span>
+                                {% elif confidence >= 60 %}
+                                <span class="text-xs text-[#1f9ed8] font-medium">Tinggi</span>
+                                {% elif confidence >= 40 %}
+                                <span class="text-xs text-yellow-600 font-medium">Sedang</span>
+                                {% else %}
+                                <span class="text-xs text-red-600 font-medium">Rendah</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
 
-            <div class="mt-8">
-                <table class="min-w-full border-collapse border border-gray-300">
-                    <thead>
-                        <tr>
-                            <th class="border border-gray-300 px-4 py-2">Jenis Bakteri</th>
-                            <th class="border border-gray-300 px-4 py-2">Persentase</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for bacteria, percentage in percentages %}
-                        <tr>
-                            <td class="border border-gray-300 px-4 py-2">{{ bacteria }}</td>
-                            <td class="border border-gray-300 px-4 py-2">{{ "%.2f"|format(percentage*100) }}%</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+            <!-- Additional Information Card -->
+            <div class="bg-blue-50 rounded-lg p-4 mt-6">
+                <div class="flex items-start gap-3">
+                    <svg class="w-5 h-5 text-blue-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    <div class="flex-1">
+                        <h4 class="text-sm font-semibold text-blue-800 mb-1">Catatan Hasil Analisis</h4>
+                        <p class="text-sm text-blue-700">Hasil klasifikasi di atas menunjukkan persentase kemiripan
+                            gambar yang diunggah dengan karakteristik setiap jenis bakteri dalam database. Semakin
+                            tinggi persentase, semakin besar kemungkinan bakteri tersebut sesuai dengan gambar yang
+                            dianalisis.</p>
+                    </div>
+                </div>
             </div>
         </div>
         {% endif %}
 
-        <div class="mb-24 sm:mb-24 mx-4 sm:mx-28">
-            <h2 class="text-lg sm:text-xl font-bold text-gray-800 pb-2">Panduan Penggunaan Sistem Klasifikasi Gambar
-                Bakteri</h2>
-            <div class="flex items-start space-x-2">
-                <span class="">1.</span>
-                <p class="text-gray-600">
-                    Klik <span class="font-semibold text-[#7fccf1]">“Pilih Gambar Bakteri”</span> untuk mengirimkan file
-                    gambar yang
-                    akan diklasifikasikan.
-                </p>
+        <!-- Updated User Guide Section -->
+        <div class="bg-white rounded-xl border border-gray-200 p-6 mb-24 mx-4 sm:mx-28">
+            <div class="border-b border-gray-100 pb-4 mb-6">
+                <h2 class="text-xl font-semibold text-gray-800">Panduan Penggunaan</h2>
+                <p class="text-sm text-gray-600 mt-1">Ikuti langkah-langkah berikut untuk menggunakan sistem deteksi
+                    bakteri</p>
             </div>
-            <div class="flex items-start space-x-2">
-                <span class="">2.</span>
-                <p class="text-gray-600">
-                    Setelah memilih gambar, klik <span class="font-semibold text-[#7fccf1]">“Crop & Lanjutkan</span>
-                    untuk
-                    memotong area yang relevan.
-                </p>
-            </div>
-            <div class="flex items-start space-x-2">
-                <span class="">3.</span>
-                <p class="text-gray-600">
-                    Setelah itu, klik tombol <span class="font-semibold text-[#7fccf1]">“Kirim”</span> untuk memproses
-                    gambar
-                    yang akan diklasifikasikan.
-                </p>
-            </div>
-            <div class="flex items-start space-x-2">
-                <span class="">4.</span>
-                <p class="text-gray-600">
-                    Tunggu hingga proses selesai, dan hasil klasifikasi gambar bakteri akan ditampilkan.
-                </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Step 1 -->
+                <div class="bg-gray-50 rounded-lg p-4">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0">
+                            <div class="w-8 h-8 bg-[#1f9ed8] bg-opacity-10 rounded-lg flex items-center justify-center">
+                                <span class="text-[#1f9ed8] font-semibold">1</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-gray-800 font-medium mb-2">Pilih Gambar</h3>
+                            <p class="text-gray-600 text-sm">
+                                Klik <span class="font-medium text-[#1f9ed8]">"Pilih Gambar Bakteri"</span> dan pilih
+                                file gambar yang akan dianalisis
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-gray-50 rounded-lg p-4">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0">
+                            <div class="w-8 h-8 bg-[#1f9ed8] bg-opacity-10 rounded-lg flex items-center justify-center">
+                                <span class="text-[#1f9ed8] font-semibold">2</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-gray-800 font-medium mb-2">Sesuaikan Gambar</h3>
+                            <p class="text-gray-600 text-sm">
+                                Gunakan fitur <span class="font-medium text-[#1f9ed8]">"Crop & Lanjutkan"</span> untuk
+                                mengatur area gambar yang akan dianalisis
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-gray-50 rounded-lg p-4">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0">
+                            <div class="w-8 h-8 bg-[#1f9ed8] bg-opacity-10 rounded-lg flex items-center justify-center">
+                                <span class="text-[#1f9ed8] font-semibold">3</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-gray-800 font-medium mb-2">Mulai Analisis</h3>
+                            <p class="text-gray-600 text-sm">
+                                Tekan tombol <span class="font-medium text-[#1f9ed8]">"Kirim"</span> untuk memulai
+                                proses analisis AI
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="bg-gray-50 rounded-lg p-4">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0">
+                            <div class="w-8 h-8 bg-[#1f9ed8] bg-opacity-10 rounded-lg flex items-center justify-center">
+                                <span class="text-[#1f9ed8] font-semibold">4</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-gray-800 font-medium mb-2">Lihat Hasil</h3>
+                            <p class="text-gray-600 text-sm">
+                                Hasil analisis akan ditampilkan secara otomatis setelah proses selesai
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Add FAQ section before the end of the body
-        <div class="mx-4 sm:mx-28 mb-24">
-            <h2 class="text-xl font-bold text-gray-800 mb-6">Frequently Asked Questions</h2>
-            <div class="space-y-4">
-                <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
-                    <h3 class="font-semibold text-gray-800 mb-2">Berapa lama proses deteksi berlangsung?</h3>
-                    <p class="text-gray-600">Proses deteksi biasanya memakan waktu 15 detik - 1 menit tergantung ukuran
-                        gambar.
-                    </p>
-                </div>
-                <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
-                    <h3 class="font-semibold text-gray-800 mb-2">Format gambar apa yang didukung?</h3>
-                    <p class="text-gray-600">Sistem mendukung format gambar JPG, JPEG, dan PNG.</p>
-                </div>
-                <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
-                    <h3 class="font-semibold text-gray-800 mb-2">Apakah hasil deteksi selalu akurat?</h3>
-                    <p class="text-gray-600">Meskipun sistem ini memiliki tingkat akurasi yang baik, hasil deteksi tidak
-                        selalu 100% akurat. Sistem ini dirancang sebagai alat bantu awal dan sangat disarankan untuk
-                        selalu memvalidasi hasil dengan ahli mikrobiologi atau profesional kesehatan yang berkompeten.
-                    </p>
-                </div>
-            </div>
-        </div> -->
     </div>
 
     <!-- Crop Modal -->
@@ -247,7 +353,7 @@
                     <button id="cancelCrop" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300">
                         Batal
                     </button>
-                    <button id="cropButton" class="px-4 py-2 bg-[#7fccf1] text-white rounded-lg hover:bg-[#1f9ed8]">
+                    <button id="cropButton" class="px-4 py-2 bg-[#1f9ed8] text-white rounded-lg hover:bg-[#1B8EC2]">
                         Crop & Lanjutkan
                     </button>
                 </div>
