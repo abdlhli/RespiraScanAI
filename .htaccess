@@ -1,0 +1,17 @@
+<IfModule mod_wsgi.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ passenger_wsgi.py/$1 [QSA,L]
+</IfModule>
+
+<Files *.py>
+    Require all denied
+</Files>
+
+<FilesMatch "\.(py|pyc|so)$">
+    Require all denied
+</FilesMatch>
+
+<Directory "/home/respiras/public_html/app/static/uploads">
+    Options -Indexes
+</Directory>

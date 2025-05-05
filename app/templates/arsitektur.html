@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Deteksi Bakteri Ispa</title>
-    <link rel="shortcut icon" href="/static/POLIJE TRANSPARAN.png" />
+    <link rel="shortcut icon" href="/static/POLIJE-TRANSPARAN.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
@@ -104,7 +104,127 @@
         {% include 'components/navbar.html' %}
 
         <div class="max-w-screen-xl mx-auto">
+            <div class="flex flex-col max-w-screen-md mx-auto px-4 md:px-16">
+                <div class="flex flex-col items-center justify-start mt-4 max-w-screen-md">
+                    <h1 class="font-bold mb-10 text-start text-2xl">Arsitektur InceptionResNetV2 untuk Deteksi Dini
+                        Penyakit ISPA</h1>
+                </div>
 
+                <div class="flex items-center space-x-4 mb-7">
+                    <img class="w-12 h-12 rounded-full" src="/static/pp.jpg" alt="Profile Picture">
+                    <div class="leading-tight">
+                        <p class="font-bold text-sm">Abdullah Ali</p>
+                        <p class="text-gray-500 text-sm">Penulis - 17 Agustus 2024</p>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex justify-center">
+                        <img class="w-1/2 rounded-xl" src="/static/skema-InceptionResNetV2.png"
+                            alt="Skema InceptionResNetV2">
+                    </div>
+                    <p class="text-sm justify-center text-center mt-4">Gambar 2.7 Skema InceptionResNetV2 (Szegedy dkk.,
+                        2016)</p>
+                </div>
+
+                <div class="items-start justify-start mt-6 max-w-screen-md">
+                    <p class="mb-5 text-justify">
+                        Inception-Resnet-V2 adalah variasi dari model Inception V3, dan ini jauh lebih dalam dari
+                        Inception V3 sebelumnya. Pada block konvolusi pada Inception Resnet-V2 memiliki jaringan yang
+                        sama di mana blok sisa yang berulang telah dikompresi. Kesuksesan Residual Block yang awal mula
+                        di ciptakan pada arsitektur resnet yang menjadi juara LSVRC 2015 (ImageNet Large Scale Visual
+                        Recognition Challenge) yang mengatasi Vanishing Gradient yang terjadi karena banyaknya layer
+                        konvolusi.
+                    </p>
+
+                    <p class="mb-5 text-justify">
+                        InceptionResNetV2 adalah arsitektur CNN yang dibangun di atas keluarga arsitektur Inception
+                        tetapi menggabungkan koneksi Residual (menggantikan tahap rangkaian filter dari arsitektur
+                        Inception). InceptionResNetV2 mendapat semua manfaat dari pendekatan residual sambil
+                        mempertahankan efisiensi komputasinya (Nugraha dkk., 2022).
+                    </p>
+
+                    <div class="mt-8">
+                        <div class="flex justify-center">
+                            <img class="w-1/2 rounded-xl" src="/static/stem-block.png" alt="Stem Block">
+                        </div>
+                        <p class="text-sm justify-center text-center mt-4">Gambar 2.8 Stem Block (Szegedy dkk., 2016)
+                        </p>
+                    </div>
+
+                    <p class="my-5 text-justify">
+                        Pada Stem blok ini berguna untuk memberikan inisial set yang akan dilakukan sebelum masuk ke
+                        dalam modul Blok Inception selanjutnya.
+                    </p>
+
+                    <div class="space-y-8">
+                        <div>
+                            <div class="flex justify-center">
+                                <img class="w-1/2 rounded-xl" src="/static/inception-resnet-a.png"
+                                    alt="Inception Resnet A">
+                            </div>
+                            <p class="text-sm justify-center text-center mt-4">Gambar 2.9 Inception Resnet A (Szegedy
+                                dkk., 2016)</p>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-center">
+                                <img class="w-1/2 rounded-xl" src="/static/inception-resnet-b.png"
+                                    alt="Inception Resnet B">
+                            </div>
+                            <p class="text-sm justify-center text-center mt-4">Gambar 2.10 Inception Resnet B (Szegedy
+                                dkk., 2016)</p>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-center">
+                                <img class="w-1/2 rounded-xl" src="/static/inception-resnet-c.png"
+                                    alt="Inception Resnet C">
+                            </div>
+                            <p class="text-sm justify-center text-center mt-4">Gambar 2.11 Inception Resnet C (Szegedy
+                                dkk., 2016)</p>
+                        </div>
+                    </div>
+
+                    <p class="my-5 text-justify">
+                        Pada Inception Resnet Block memperkenalkan Residual Connection yang dibangun di atas keluarga
+                        arsitektur Inception tetapi menggabungkan koneksi residual menggantikan tahap rangkaian filter
+                        dari arsitektur Inception yang terdiri modul A, B dan C.
+                    </p>
+
+                    <div class="space-y-8 mb-8">
+                        <div>
+                            <div class="flex justify-center">
+                                <img class="w-1/2 rounded-xl" src="/static/reduction-a.png" alt="Reduction A">
+                            </div>
+                            <p class="text-sm justify-center text-center mt-4">Gambar 2.12 Reduction A (Szegedy dkk.,
+                                2016)</p>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-center">
+                                <img class="w-1/2 rounded-xl" src="/static/reduction-b.png" alt="Reduction B">
+                            </div>
+                            <p class="text-sm justify-center text-center mt-4">Gambar 2.13 Reduction B (Szegedy dkk.,
+                                2016)</p>
+                        </div>
+                    </div>
+
+                    <p class="mb-5 text-justify">
+                        Tahap selanjutnya ekstraksi fitur yang masuk kedalam reduction block, pada block ini akan
+                        melakukan reduksi atau pengecilan ukuran fitur dengan melakukan maxpooling pada setiap block
+                        reduction dengan di ikuti penggabungan fitur atau Concatenate yang terdiri dari Reduction A dan
+                        B.
+                    </p>
+                </div>
+                <p class="font-bold">REFERENSI:</p>
+                <p>- Nugraha, P., Komarudin, A., & Ramadhan, E. (2022). DETEKSI OBJEK DAN JENIS BURUNG MENGGUNAKAN
+                    CONVOLUTIONAL NEURAL NETWORK DENGAN ARSITEKTUR INCEPTION RESNET-V2. 8.</p>
+                <p>- Szegedy, C., Ioffe, S., Vanhoucke, V., & Alemi, A. (2016). Inception-v4, Inception-ResNet and the
+                    Impact of Residual Connections on Learning (arXiv:1602.07261). arXiv.
+                    http://arxiv.org/abs/1602.07261</p>
+                <br>
+            </div>
         </div>
     </div>
     <!-- JavaScript -->
