@@ -80,7 +80,8 @@ def mulai():
                              reverse=True)
 
         result = predicted_label
-        resultwithconfident = f"Bakteri {predicted_label}, Dengan Confidence {confidence:.2%}"
+        # resultwithconfident = f"Bakteri {predicted_label}, Dengan Confidence {confidence:.2%}"
+        resultwithconfident = f"Bakteri {predicted_label}"
 
     return render_template('mulai.html', result=result, uploaded_image=img_filename,
                            resultwithconfident=resultwithconfident, percentages=percentages)
